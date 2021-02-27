@@ -28,7 +28,6 @@ function getDBInstance(cb) {
             cb(instance);
         }
         else {
-            console.log("else");
             totalInstance++;
             connectToDatabase((inst)=>{
                 instance = inst;
