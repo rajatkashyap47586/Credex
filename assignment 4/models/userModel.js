@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const collectionName = "userdata";
 
 const userSchema = new mongoose.Schema({
-    rollno:{
+    id:{
         type: Number,
         require: true
     },

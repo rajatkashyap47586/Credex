@@ -1,56 +1,36 @@
-const userModel = require('../models/userModel');
+const Service = require('../services/user-service');
+
+const UserService = new Service(); 
 
 class UserController {
 
-    //show all the user data
-    async userList() {
-        try {
-            let result = await userModel.find({})
-            return result;
-        }
-        catch (err) {
-            console.log("error occured while fetching all the data", err);
-            return err;
-        }
+    //show all the user data Controller
+    async userList(req,res) {
+        let result = await UserService.userList(); 
+        res.json(result);
     }
 
-    //show specified user data
-    async listUser(rollno) {
-        try {
-            let result = await userModel.findOne({ rollno: rollno });
-            return result;
-        } catch (err) {
-            console.log("Error occured while fetching the data of rollno =", rollno, err);
-            return err;
-        }
+    //show specified user data Controller
+    async showUser(req,res) {
+        let id = req.params["id"];
+        let result = await UserService.showUser(id);
+        res.json(result);
     }
 
-    //add the user
-    async addUser(obj) {
-        try {
-            let user = new userModel({
-                rollno: obj.rollno,
-                name: obj.name
-            })
-            let result = await user.save(user)
-            return result;
-        }
-        catch (err) {
-            console.log("error occured while adding the user ", err);
-            return err;
-        }
+    //add the user Controller
+    async addUser(req,res) {
+        let id = req.body.id;
+        let name = req.body.name;
+        let result = await UserService.addUser(id, name);
+        res.json(result);
     }
 
-    //delete the user
-    async deleteUser(rollno) {
-        try {
-            let result = await userModel.deleteOne({ rollno: rollno });
-            return result;
-        }
-        catch (err) {
-            console.log("error occured while deleting the user ", err);
-            return err;
-        }
+    //delete the user Controller
+    async deleteUser(req,res) {
+        console.log(req.params["id"]);
+        let id = req.params["id"];
+        let result = await UserService.deleteUser(id);
+        res.json(result);
     }
 }
 
