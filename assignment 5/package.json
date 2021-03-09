@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.3.3",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
+    "mocha": "^8.3.1",
     "mongoose": "^5.11.19",
     "nodemon": "^2.0.7"
   }

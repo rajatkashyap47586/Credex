@@ -27,21 +27,13 @@ class userService {
 
     async showParticularUser(u_id){
         try{
-            return await userModel.find({u_id:u_id});
+            return await userModel.findOne({u_id:u_id});
         }
         catch(err){
             return err;
         }
     }
 
-    async showParticularOrgUser(o_id){
-        try{
-            return await userModel.find({o_id: o_id});
-        }
-        catch(err){
-            return err;
-        }
-    }
 
     async deleteAllUser(){
         try{
@@ -61,14 +53,6 @@ class userService {
         }
     }
 
-    async deleteParticularOrgUser(o_id){
-        try{
-            return await userModel({o_id})
-        }
-        catch(err){
-            return err;
-        }
-    }
 
     async updateUser(u_id, u_name){
         try{

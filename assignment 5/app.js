@@ -5,6 +5,7 @@ const dbConnection = require('./db-connectivity');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routes);
 
 dbConnection();
@@ -16,3 +17,5 @@ app.listen("1234",(err)=>{
     }
     console.log("Server started at port 1234");
 })
+
+module.exports = app;

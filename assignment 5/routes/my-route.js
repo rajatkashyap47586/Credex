@@ -1,44 +1,45 @@
 const route = require('express').Router();
 
-const Controller = require('../controller/user-controller');
-const userService = require('../services/user-service');
+const uController = require('../controller/user-controller');
+const oController = require('../controller/organisation-controller');
 
-const userController = new Controller();
+
+const userController = new uController();
+const organisationController = new oController();
 
 route.get("/",userController.fetchAllData);
 
 route.get("/users",userController.fetchUserData);
 
-route.get("/orgaisations",userController.fetchOraganisationData);
+route.get("/organisations",organisationController.fetchOraganisationData);
 
 //not working
-route.get("/user/:u_id",userController.fetchParticularUserData,()=>{
-    console.log("Its me");
-});
+route.get("/user/:u_id",userController.fetchParticularUserData);
 //
-route.get("organisation/:o_id",userController.fetchParticularOrganisationData);
+route.get("/organisation/:o_id",organisationController.fetchParticularOrganisationData);
 //
-route.get("/org/user/:o_id",userController.fetchParticularOrgUserData);
+route.get("/org/user/:o_id",organisationController.fetchParticularOrgUserData);
+
 
 route.post("/adduser",userController.addUser);
 
-route.post("/addorganisation",userController.addOrganisation);
+route.post("/addorganisation",organisationController.addOrganisation);
 
 
-route.put("/organisation",userController.updateOrganisation);
+route.put("/organisation",organisationController.updateOrganisation);
 
 route.put("/user",userController.updateUser);
 
 
-route.delete("/organisation",userController.deleteParticularOrganisation);
+route.delete("/organisation",organisationController.deleteParticularOrganisation);
 
 route.delete("/user",userController.deleteParticularUser);
 
-route.delete("/organisations",userController.deleteAllOrganisation);
+route.delete("/organisations",organisationController.deleteAllOrganisation);
 
 route.delete("/users",userController.deleteAllUser);
 
-route.delete("/org/user",userController.deleteParticularOrgUser)
+route.delete("/org/user",organisationController.deleteParticularOrgUser)
 
 
 module.exports = route;
