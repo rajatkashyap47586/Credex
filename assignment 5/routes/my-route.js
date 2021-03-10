@@ -7,13 +7,12 @@ const oController = require('../controller/organisation-controller');
 const userController = new uController();
 const organisationController = new oController();
 
-route.get("/",userController.fetchAllData);
+//route.get("/",userController.fetchAllData);
 
 route.get("/users",userController.fetchUserData);
 
 route.get("/organisations",organisationController.fetchOraganisationData);
 
-//not working
 route.get("/user/:u_id",userController.fetchParticularUserData);
 //
 route.get("/organisation/:o_id",organisationController.fetchParticularOrganisationData);

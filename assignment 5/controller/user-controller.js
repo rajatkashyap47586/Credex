@@ -7,11 +7,11 @@ const organisationService = new oService();
 class userController {
 
     //
-    async fetchAllData(req, res) {
+    /*async fetchAllData(req, res) {
         let u = await userService.showAllUser();
         let o = await organisationService.showAllOrganisation();
         res.send({ user: u, organisation: o });
-    }
+    }*/
 
     async fetchUserData(req, res) {
         let u = await userService.showAllUser();

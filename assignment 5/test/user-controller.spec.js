@@ -48,31 +48,6 @@ describe("api.spec",()=>{
                 })
         });
 
-        it("should fetch users and orgs data",async()=>{
-            let user = new userModel({
-                o_id:1,
-                u_id:1,
-                u_name:"rajat",
-            })
-
-            let org = new organisationModel({
-                o_id:1,
-                o_name:"credex"
-            })
-
-            await user.save();
-            await org.save();
-
-            return chai.request(app)
-                .get("/")
-                .then((result)=>{
-                    result.should.have.status(200);
-                    chai.expect(result.user.body[0].u_id).to.equal(1);
-                    chai.expect(result.organisation.body[0].u_id).to.equal(1);
-                })
-                .catch((err)=>err);
-        })
-
         it("should fetch all user collection data",async()=>{
             let user = new userModel({
                 o_id:1,
