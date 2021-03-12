@@ -17,3 +17,6 @@
 
 ## Assignment 6
 #### Reading from file line by line using line-reader module, making one document from each line and store in mongodb.
+
+## Assignment 7
+#### User give name of file and time of refresh using prompt, then check for any changes in that file for that particular amount of time. If there is any change then read that line, make a document and insert it in mongodb.
