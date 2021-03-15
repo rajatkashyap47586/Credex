@@ -20,3 +20,6 @@
 
 ## Assignment 7
 #### User give name of file and time of refresh using prompt, then check for any changes in that file for that particular amount of time. If there is any change then read that line, make a document and insert it in mongodb.
+
+## Assignment 8
+#### Fetch the status of a newly added data in mongodb database in basic html page.

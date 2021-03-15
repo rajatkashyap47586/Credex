@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    User Status
+</head>
+
+<body>
+    <script>
+
+        function fetchData() {
+            console.log("fetching...")
+            fetch('http://localhost:1234/user/status', {
+                //mode: "no-cors",
+                method: "GET",
+                headers: {
+                    "Accept": "application/json"
+                }
+            })
+            .then(Response => Response.json())
+            .then(result => {
+                console.log(result);
+                document.getElementById("no").innerHTML = result.numberOfUpdatedRecord;
+                let data = result.newlyAddedData;
+                document.getElementById("data").innerHTML = JSON.stringify(data);
+            })
+            .catch((err) => console.log(err));
+        }
+
+        fetchData();
+        setInterval(()=>{ fetchData()},15000);
+
+
+    </script>
+
+    <h1>Number of newly added data:</h1>
+    <h1 id="no"></h1>
+
+    <h2>Updated Data:</h2>
+    <h2 id="data"></h2>
+</body>
+
+</html>
